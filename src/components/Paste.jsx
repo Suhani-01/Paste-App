@@ -60,7 +60,6 @@ const Paste = () => {
                   </div>
 
                   <div className="flex flex-row gap-2 max-sm:gap-1 justify-end">
-
                     {/* edit button redirect to home page*/}
                     <button>
                       <a href={`/?pasteId=${paste?._id}`}>
@@ -94,7 +93,9 @@ const Paste = () => {
                       className="cursor-pointer"
                       onClick={() => {
                         navigator.clipboard.writeText(paste.content);
-                        toast.success("copied to clipboard");
+                        toast.success("copied to clipboard", {
+                          duration: 1000, // time in milliseconds (1 second)
+                        });
                       }}
                     >
                       <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-green-500">
@@ -103,11 +104,15 @@ const Paste = () => {
                     </button>
 
                     {/* copy the url link */}
-                    <button onClick={()=>{
-                      const shareUrl = `${window.location.origin}/pastes/${paste._id}`;
-                      navigator.clipboard.writeText(shareUrl);
-                      toast.success("URL Copied Sucessfully")
-                    }}>
+                    <button
+                      onClick={() => {
+                        const shareUrl = `${window.location.origin}/pastes/${paste._id}`;
+                        navigator.clipboard.writeText(shareUrl);
+                        toast.success("URL Copied Sucessfully", {
+                          duration: 1000, // time in milliseconds (1 second)
+                        });
+                      }}
+                    >
                       <span className="material-symbols-outlined  bg-white text-black border-2 border-gray-500 rounded cursor-pointer transition-all duration-200 hover:text-purple-500">
                         share
                       </span>

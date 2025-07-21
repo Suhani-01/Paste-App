@@ -36,7 +36,9 @@ const ViewPaste = () => {
           <button className="flex h-full items-center"
             onClick={() => {
               navigator.clipboard.writeText(paste.content);
-              toast.success("Copied to clipboard");
+              toast.success("Copied to clipboard", {
+          duration: 1000, // time in milliseconds (1 second)
+        });
             }}
           >
             <span className="material-symbols-outlined  text-white cursor-pointer">

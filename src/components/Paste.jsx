@@ -23,7 +23,7 @@ const Paste = () => {
   }
 
   return (
-    <div className="max-w-[700px] min-w-[300px] mx-auto mt-14">
+    <div className="max-w-[700px] min-w-[300px] mx-auto mt-14 px-[20px]">
       <input
         className="bg-white border-[2px] border-gray-500 px-4 py-2 rounded-xl w-[100%] mt-3"
         type="search"
@@ -32,11 +32,11 @@ const Paste = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div className="flex flex-col gap-6 mt-6 border-[2px] border-gray-500 rounded-xl p-4 h-[500px] scroll-auto overflow-y-auto">
+      <div className="flex flex-col gap-6 mt-6 border-[3px] border-gray-500 rounded-xl p-4 h-[500px] scroll-auto overflow-y-auto">
         {filteredData.length > 0 &&
           filteredData.map((paste) => {
             return (
-              <div className="border-[2px] font-serif border-gray-500 rounded-xl py-[8px] px-[10px] w-full h-[120px] flex gap-3 justify-between">
+              <div className="border-[2px] overflow-y-hidden font-serif border-gray-500 rounded-xl py-[8px] px-[10px] w-full min-h-[120px] max-h-[140px] flex gap-3 justify-between bg-green-300">
                 <div className="w-[60%]">
                   <div>
                     <b>TITLE</b> : {paste.title}
@@ -61,7 +61,7 @@ const Paste = () => {
                   <div className="flex flex-row gap-4 place-content-evenly">
                     <button>
                       <a href={`/?pasteId=${paste?._id}`}>
-                        <span className="material-symbols-outlined text-black border border-gray-500 rounded">
+                        <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-yellow-500">
                           edit
                         </span>
                       </a>
@@ -69,7 +69,7 @@ const Paste = () => {
 
                     <button>
                       <a href={`/pastes/${paste._id}`}>
-                        <span className="material-symbols-outlined text-black border border-gray-500 rounded">
+                        <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-blue-500">
                           visibility
                         </span>
                       </a>
@@ -79,7 +79,7 @@ const Paste = () => {
                       className="cursor-pointer"
                       onClick={() => handleDelete(paste._id)}
                     >
-                      <span className="material-symbols-outlined text-red-600 border border-gray-500 rounded">
+                      <span className="material-symbols-outlined bg-white text-red-600 border-2 border-gray-500 rounded">
                         delete
                       </span>
                     </button>
@@ -91,14 +91,14 @@ const Paste = () => {
                         toast.success("copied to clipboard");
                       }}
                     >
-                      <span className="material-symbols-outlined text-black border border-gray-500 rounded">
+                      <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-green-500">
                         content_copy
                       </span>
                     </button>
 
                     {/* not build yet */}
                     <button>
-                      <span className="material-symbols-outlined text-black border border-gray-500 rounded">
+                      <span className="material-symbols-outlined  bg-white text-black border-2 border-gray-500 rounded cursor-pointer transition-all duration-200 hover:text-purple-500">
                         share
                       </span>
                     </button>

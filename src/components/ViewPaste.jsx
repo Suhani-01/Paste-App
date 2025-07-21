@@ -10,7 +10,7 @@ const ViewPaste = () => {
   const paste = allPastes.filter((p) => p._id === id)[0];
   console.log(paste);
   return (
-    <div className="max-w-[700px]  mt-16 min-w-[300px] mx-auto">
+    <div className="max-w-[700px]  mt-16 min-w-[300px] mx-auto py-[20px]">
       <div className="flex items-center gap-[10px]"> 
         <span className="text-lg font-bold w-[10%]">TITLE : </span>
         <input

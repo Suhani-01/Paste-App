@@ -57,10 +57,10 @@ const Home = () => {
 
 
   return (
-    <div className="max-w-[700px] min-w-[300px] mx-auto">
+    <div className="max-w-[700px] min-w-[300px] mx-auto px-[20px]">
       <div className="flex flex-row gap-6 w-[100%] mt-15">
         <input
-          className="px-3 py-2 border-[2px] border-gray-500 bg-white rounded-xl w-[75%]"
+          className="px-3 py-2 border-[2px] border-gray-500 bg-white rounded-xl w-[80%]"
           type="text"
           placeholder="Enter Title Here"
           value={title}
@@ -69,8 +69,8 @@ const Home = () => {
           }}
         />
 
-        <button onClick={createPaste} className="px-3 cursor-pointer w-[25%] text-white font-bold bg-linear-to-t from-sky-500 to-indigo-500 rounded-xl flex items-center justify-between gap-2">
-          {pasteId ? "Update My Paste" : "Create Paste"}
+        <button onClick={createPaste} className="px-3 cursor-pointer w-[20%] text-white font-bold bg-linear-to-t from-sky-500 to-indigo-500 rounded-xl flex items-center justify-center gap-2">
+          {pasteId ? "Update" : "Create"}
           <span className="material-symbols-outlined text-white">add_circle</span>
         </button>
       </div>

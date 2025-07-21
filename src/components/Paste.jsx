@@ -4,6 +4,7 @@ import { removeFromPastes } from "../redux/pasteSlice";
 import toast from "react-hot-toast";
 
 const Paste = () => {
+  //fetch pastes data in initial state object present in the "paste"  named slice
   const pastes = useSelector((state) => state.paste.pastes);
 
   //dispatcher
@@ -32,7 +33,7 @@ const Paste = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div className="flex flex-col gap-6 mt-6 border-[3px] border-gray-500 rounded-xl p-4 h-[500px] scroll-auto overflow-y-auto">
+      <div className="flex flex-col gap-6 mt-6 border-[3px] border-gray-500 rounded-xl p-4 h-[500px] scroll-auto overflow-y-auto ">
         {filteredData.length > 0 &&
           filteredData.map((paste) => {
             return (
@@ -59,6 +60,8 @@ const Paste = () => {
                   </div>
 
                   <div className="flex flex-row gap-4 place-content-evenly">
+
+                    {/* edit button redirect to home page*/}
                     <button>
                       <a href={`/?pasteId=${paste?._id}`}>
                         <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-yellow-500">
@@ -67,14 +70,16 @@ const Paste = () => {
                       </a>
                     </button>
 
+                    {/* view button redirect to viewPaste page*/}
                     <button>
-                      <a href={`/pastes/${paste._id}`}>
+                      <a href={`/pastes/${paste?._id}`}>
                         <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-blue-500">
                           visibility
                         </span>
                       </a>
                     </button>
 
+                    {/* delete button have handler*/}
                     <button
                       className="cursor-pointer"
                       onClick={() => handleDelete(paste._id)}
@@ -84,6 +89,7 @@ const Paste = () => {
                       </span>
                     </button>
 
+                    {/* copy button , copy to clipboard */}
                     <button
                       className="cursor-pointer"
                       onClick={() => {
@@ -96,8 +102,12 @@ const Paste = () => {
                       </span>
                     </button>
 
-                    {/* not build yet */}
-                    <button>
+                    {/* not build yet share button */}
+                    <button onClick={()=>{
+                      const shareUrl = `${window.location.origin}/pastes/${paste._id}`;
+                      navigator.clipboard.writeText(shareUrl);
+                      toast.success("URL Copied Sucessfully")
+                    }}>
                       <span className="material-symbols-outlined  bg-white text-black border-2 border-gray-500 rounded cursor-pointer transition-all duration-200 hover:text-purple-500">
                         share
                       </span>

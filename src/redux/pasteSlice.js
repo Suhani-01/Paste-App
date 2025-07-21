@@ -3,12 +3,10 @@ import toast from 'react-hot-toast';
 
 const initialState = {
 
-  //local storage 
-  pastes : localStorage.getItem("pastes")
-  ? JSON.parse(localStorage.getItem("pastes"))
-  : [],
+  //local storage key value pair of object
+  pastes : localStorage.getItem("pastes") ? JSON.parse(localStorage.getItem("pastes")): [],
 
-
+  //if pastes exist the get it else create new array
 }
 
 export const pasteSlice = createSlice({
@@ -16,15 +14,29 @@ export const pasteSlice = createSlice({
   initialState,
   reducers: {
     addToPastes: (state,action) => {
-       const paste=action.payload;
+      const paste=action.payload;
 
-       //add a check for paste already exist
+      //add a check for paste already exist
       //ie same title already exist krta hai tho
+        const index=state.pastes.findIndex((item)=>item.title.toLowerCase()==paste.title.toLowerCase());
 
+        //if title already exist 
+        if(index!=-1){
+          toast.error("Title Already Exist");
+        }
 
-       state.pastes.push(paste);
-       localStorage.setItem("pastes",JSON.stringify(state.pastes));
-       toast("Paste Created Sucessfully");
+        //if title is empty
+        else if(paste.title.trim().length===0){
+          toast.error("Title is Empty");
+        }
+
+        //no issue
+        else{
+          state.pastes.push(paste);
+          localStorage.setItem("pastes",JSON.stringify(state.pastes));
+          toast.success("Paste Created Sucessfully");
+        }
+       
     },
 
 
@@ -51,13 +63,14 @@ export const pasteSlice = createSlice({
     removeFromPastes:(state,action)=>{
       const pasteId=action.payload;
 
-
-      console.log(pasteId);
       const index=state.pastes.findIndex((item)=>item._id===pasteId);
       
       if(index>=0){
+
+        //splice is array's method to delete item
         state.pastes.splice(index,1);
 
+        //updating array in local storage
         localStorage.setItem("pastes",JSON.stringify(state.pastes));
 
         toast.success("Paste deleted");

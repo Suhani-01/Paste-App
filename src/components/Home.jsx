@@ -57,33 +57,33 @@ const Home = () => {
 
 
   return (
-    <div>
-      <div className="flex flex-row gap-5">
+    <div className="max-w-[700px] min-w-[300px] mx-auto">
+      <div className="flex flex-row gap-6 w-[100%] mt-15">
         <input
-          className="px-3 py-2 bg-black rounded-2xl mt-2 w-120"
+          className="px-3 py-2 border-[2px] border-gray-500 bg-white rounded-xl w-[75%]"
           type="text"
-          placeholder="Enter title here"
+          placeholder="Enter Title Here"
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
         />
 
-        <button onClick={createPaste} className="px-3 py-2 bg-black rounded-2xl mt-3">
-          {pasteId ? "Update My Paste" : "Create My Paste"}
+        <button onClick={createPaste} className="px-3 cursor-pointer w-[25%] text-white font-bold bg-linear-to-t from-sky-500 to-indigo-500 rounded-xl flex items-center justify-between gap-2">
+          {pasteId ? "Update My Paste" : "Create Paste"}
+          <span className="material-symbols-outlined text-white">add_circle</span>
         </button>
       </div>
 
-      <div>
+      <div className="w-[100%] mx-auto">
         <textarea 
-        className=" bg-black rounded-xl mt-10 p-5"
-        placeholder="enter content here"
+        className="bg-white w-[100%] border-[2px] border-gray-500 rounded-xl mt-7 p-5"
+        placeholder="Enter Content Here"
         value={value}
         onChange={(e) => {
             setValue(e.target.value);
           }}
-        rows={20}
-        cols={80}
+        rows={18}
         >
 
         </textarea>

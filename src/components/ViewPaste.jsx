@@ -12,11 +12,11 @@ const ViewPaste = () => {
   const paste = allPastes.filter((p) => p._id === id)[0];
 
   return (
-    <div className="max-w-[700px]  mt-12 min-w-[300px] mx-auto px-[20px]">
+    <div className="max-w-[700px]  mt-12 max-sm:mt-7 min-w-[300px] mx-auto px-[20px]">
       <div className="flex items-center gap-[10px] justify-between">
-        <span className="text-lg font-bold w-[15%]">TITLE : </span>
+        <span className="text-lg font-bold w-fit max-sm:text-base">TITLE : </span>
         <input
-          className="px-3 py-2 w-[85%]  bg-white border-[2px] border-gray-400 rounded-xl"
+          className="px-3 py-2 flex-1 bg-white border-[2px] border-gray-400 rounded-xl max-sm:text-base"
           type="text"
           placeholder=""
           value={paste.title}
@@ -24,7 +24,7 @@ const ViewPaste = () => {
         />
       </div>
 
-      <div className="mt-4 mb-4 bg-gray-200 border-[2px] border-gray-400 rounded-2xl">
+      <div className="mt-4 mb-4 bg-gray-200 border-[2px] border-gray-400 rounded-2xl max-sm:h-[450px]">
         <div className="h-[35px] w-[100%] bg-linear-to-t from-sky-500 to-indigo-500 rounded-t-xl m-0 flex gap-1 justify-between items-center px-3">
           <div className="flex gap-2 h-[15px] w-[100px] items-center">
             <div className="h-[15px] w-[15px] bg-red-700 rounded-[50%]"></div>
@@ -36,7 +36,7 @@ const ViewPaste = () => {
           <button className="flex h-full items-center"
             onClick={() => {
               navigator.clipboard.writeText(paste.content);
-              toast.success("copied to clipboard");
+              toast.success("Copied to clipboard");
             }}
           >
             <span className="material-symbols-outlined  text-white cursor-pointer">
@@ -46,7 +46,7 @@ const ViewPaste = () => {
           </button>
         </div>
         <textarea
-          className="w-full p-[10px] bg-gray-200 rounded-xl "
+          className="w-full p-[10px] bg-gray-200 rounded-xl max-sm:h-[410px]"
           disabled
           value={paste.content}
           rows={19}

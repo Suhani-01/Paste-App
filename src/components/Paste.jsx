@@ -24,7 +24,7 @@ const Paste = () => {
   }
 
   return (
-    <div className="max-w-[700px] min-w-[300px] mx-auto mt-14 px-[20px]">
+    <div className="max-w-[700px] min-w-[300px] mx-auto mt-14 max-sm:mt-7 px-[20px]">
       <input
         className="bg-white border-[2px] border-gray-500 px-4 py-2 rounded-xl w-[100%] mt-3"
         type="search"
@@ -33,17 +33,17 @@ const Paste = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div className="flex flex-col gap-6 mt-6 border-[3px] border-gray-500 rounded-xl p-4 h-[500px] scroll-auto overflow-y-auto ">
+      <div className="flex flex-col gap-6 max-sm:gap-4 mt-6 border-[3px] border-gray-500 rounded-xl p-4 max-sm:p-3 h-[500px] max-sm:h-[450px] scroll-auto overflow-y-auto ">
         {filteredData.length > 0 &&
           filteredData.map((paste) => {
             return (
-              <div className="border-[2px] overflow-y-hidden font-serif border-gray-500 rounded-xl py-[8px] px-[10px] w-full min-h-[120px] max-h-[140px] flex gap-3 justify-between bg-green-300">
-                <div className="w-[60%]">
-                  <div>
+              <div className="border-[2px] overflow-y-hidden max-sm:flex-wrap font-serif border-gray-500 rounded-xl py-[8px] px-[10px] w-full min-h-[120px] max-h-[140px] flex gap-3 justify-between bg-green-300">
+                <div className="w-[60%] max-sm:w-[100%]">
+                  <div className="max-sm:text-base">
                     <b>TITLE</b> : {paste.title}
                   </div>
 
-                  <div className="text-gray-500 overflow-hidden">
+                  <div className="text-gray-500 overflow-hidden max-sm:text-sm">
                     <b>Content : </b>
                     {paste.content.length > 60
                       ? paste.content.slice(0, 60) + "..."
@@ -51,20 +51,20 @@ const Paste = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-between h-full">
-                  <div className="flex items-center gap-2 justify-end">
+                <div className="flex flex-col w-[40%] max-sm:w-full max-sm:flex-row justify-between max-sm:justify-between">
+                  <div className="flex items-center gap-2 justify-end max-sm:gap-1 max-sm:text-sm">
                     <span className="material-symbols-outlined text-blue-600">
                       calendar_month
                     </span>
                     {new Date(paste.createdAt).toLocaleDateString("en-IN")}
                   </div>
 
-                  <div className="flex flex-row gap-4 place-content-evenly">
+                  <div className="flex flex-row gap-2 max-sm:gap-1 justify-end">
 
                     {/* edit button redirect to home page*/}
                     <button>
                       <a href={`/?pasteId=${paste?._id}`}>
-                        <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded transition-all duration-200 hover:text-yellow-500">
+                        <span className="material-symbols-outlined bg-white text-black border-2 border-gray-500 rounded  transition-all duration-200 hover:text-yellow-500">
                           edit
                         </span>
                       </a>
@@ -102,7 +102,7 @@ const Paste = () => {
                       </span>
                     </button>
 
-                    {/* not build yet share button */}
+                    {/* copy the url link */}
                     <button onClick={()=>{
                       const shareUrl = `${window.location.origin}/pastes/${paste._id}`;
                       navigator.clipboard.writeText(shareUrl);

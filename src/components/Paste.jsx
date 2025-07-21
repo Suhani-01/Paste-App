@@ -24,7 +24,7 @@ const Paste = () => {
   }
 
   return (
-    <div className="max-w-[700px] min-w-[300px] mx-auto mt-14 max-sm:mt-7 px-[20px]">
+    <div className="max-w-[700px] min-w-[300px] mx-auto mt-15 px-[20px]">
       <input
         className="bg-white border-[2px] border-gray-500 px-4 py-2 rounded-xl w-[100%] mt-3"
         type="search"

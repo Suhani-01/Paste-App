@@ -57,7 +57,7 @@ const Home = () => {
 
 
   return (
-    <div className="max-w-[700px] min-w-[300px] mx-auto px-[20px]  mt-15 max-sm:mt-7">
+    <div className="max-w-[700px] min-w-[300px] mx-auto px-[20px]  mt-15">
       <div className="flex flex-row gap-3 w-[100%]">
         <input
           className="px-3 py-2 border-[2px] border-gray-500 bg-white rounded-xl w-[80%] max-sm:w-[70%] max-sm:text-base"

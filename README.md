@@ -24,11 +24,13 @@ A lightweight and intuitive web application to **create**, **store**, and **mana
 ```bash
 git clone https://github.com/Suhani-01/Paste-App.git
 cd Paste-App
+```
 
 ### 2. Install dependencies
 
 ```bash
 npm install
+```
 
 ### 3. Start the development server
 

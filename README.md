@@ -2,6 +2,8 @@
 
 A lightweight and intuitive web application to **create**, **store**, and **manage** text pastes — like your personal Notepad on the web!
 
+🔗 **Live Demo:** [paste-app-eta-three.vercel.app](https://paste-app-eta-three.vercel.app)
+
 ## 🔍 Features
 
 - ✨ Create and save custom text pastes
